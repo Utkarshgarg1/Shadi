@@ -1,5 +1,5 @@
 package com.Shadi.Shadi.controller;
-
+import com.Shadi.Shadi.model.Gender;
 import com.Shadi.Shadi.model.Person;
 import com.Shadi.Shadi.service.ShadiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,15 @@ public class ProfileControllers {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<String> add( @RequestBody Person p){
+    public ResponseEntity<String> add(@RequestBody List<Person> p){
         System.out.println(p.toString());
         shadiservice.add(p);
         return ResponseEntity.status(201).body("Profile Created");
+    }
+
+    @GetMapping("/filter/{gender}")
+    public ResponseEntity<List<Person>> filterByGender(@PathVariable("gender") Gender gender){
+        return ResponseEntity.status(200).body(shadiservice.filterByGender(gender));
     }
 
 }

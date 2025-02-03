@@ -1,31 +1,41 @@
 package com.Shadi.Shadi.model;
 
-
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Person")
 public class Person {
     @Id
+    @JsonProperty("id")
     private int id;
-    private String name;
-    private int age;
-    private String qualification;
-    private String dateOfBirth;
 
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("age")
+    private int age;
+
+    @JsonProperty("qualification")
+    private String qualification;
+
+
+    @JsonProperty("dob")
+    private String dob;
+
+    @JsonProperty("occupation")
     private String occupation;
 
-//    @Enumerated(EnumType.STRING)
-//    private Gender gender;
-
-
+    @JsonProperty("gender")
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
 }

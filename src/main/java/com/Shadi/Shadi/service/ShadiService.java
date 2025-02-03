@@ -1,5 +1,6 @@
 package com.Shadi.Shadi.service;
 
+import com.Shadi.Shadi.model.Gender;
 import com.Shadi.Shadi.model.Person;
 import com.Shadi.Shadi.repository.ShadiRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,11 @@ public class ShadiService {
         return shadirepo.findAll();
     }
 
-    public void add(Person p) {
-        shadirepo.save(p);
+    public void add(List<Person> p) {
+        shadirepo.saveAll(p);
+    }
+
+    public List<Person> filterByGender(Gender gender) {
+        return  shadirepo.filterByGender(gender);
     }
 }
