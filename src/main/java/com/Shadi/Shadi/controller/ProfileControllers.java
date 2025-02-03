@@ -13,10 +13,14 @@ public class ProfileControllers {
 
     @Autowired
     private ShadiService shadiservice;
+
+    //------------------------------------------------------------------------------------------------------------------
     @GetMapping("/profiles")
     public List<Person> getProfiles(){
         return shadiservice.getProfiles();
     }
+
+    //------------------------------------------------------------------------------------------------------------------
 
     @PostMapping("/add")
     public ResponseEntity<String> add(@RequestBody List<Person> p){
@@ -24,6 +28,8 @@ public class ProfileControllers {
         shadiservice.add(p);
         return ResponseEntity.status(201).body("Profile Created");
     }
+
+    //------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/filter/{gender}")
     public ResponseEntity<List<Person>> filterByGender(@PathVariable("gender") Gender gender){

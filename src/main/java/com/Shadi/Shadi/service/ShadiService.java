@@ -13,13 +13,18 @@ public class ShadiService {
 
     @Autowired
     private ShadiRepo shadirepo;
+
+    //------------------------------------------------------------------------------------------------------------------
     public List<Person> getProfiles() {
         return shadirepo.findAll();
     }
 
+    //------------------------------------------------------------------------------------------------------------------
     public void add(List<Person> p) {
         shadirepo.saveAll(p);
     }
+
+    //------------------------------------------------------------------------------------------------------------------
 
     public List<Person> filterByGender(Gender gender) {
         return  shadirepo.filterByGender(gender);
