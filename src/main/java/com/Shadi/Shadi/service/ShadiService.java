@@ -29,4 +29,10 @@ public class ShadiService {
     public List<Person> filterByGender(Gender gender) {
         return  shadirepo.filterByGender(gender);
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    public List<Person> filterByAge(int age1, int age2) {
+        return shadirepo.filterByAge(age1,age2);
+    }
 }

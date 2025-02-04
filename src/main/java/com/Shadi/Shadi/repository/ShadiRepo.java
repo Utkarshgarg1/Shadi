@@ -15,4 +15,7 @@ public interface ShadiRepo extends JpaRepository<Person,Integer> {
     @Query("Select p from Person p where p.gender = :gender")
 
     List<Person> filterByGender(Gender gender);
+
+    @Query("Select p from Person p where p.age BETWEEN :age1 and :age2")
+    List<Person> filterByAge(int age1, int age2);
 }

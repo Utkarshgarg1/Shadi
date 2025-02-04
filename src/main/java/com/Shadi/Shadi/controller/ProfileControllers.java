@@ -32,8 +32,19 @@ public class ProfileControllers {
     //------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/filter/{gender}")
-    public ResponseEntity<List<Person>> filterByGender(@PathVariable("gender") Gender gender){
+    public ResponseEntity<List<Person>> filterByGender(@PathVariable("gender") Gender gender) {
         return ResponseEntity.status(200).body(shadiservice.filterByGender(gender));
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<Person>> filterByAge(@RequestParam(required = false) int age1,
+                                                     @RequestParam(required = false) int age2){
+
+        return ResponseEntity.status(200).body(shadiservice.filterByAge(age1,age2));
+
     }
 
 }
